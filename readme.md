@@ -6,6 +6,7 @@
 Sistema de Recomendação de Restaurantes (iFood)
 
 **Membros do Grupo:**  
+- Andria Giovana Oliveira Cabeca da Silva - RA: 10441204
 - Cristiano Prado do Carmo – RA: 10720249  
 - Felipe Graciano de Moura Ramos – RA: 10369992  
 - Guilherme Santos Oliveira – RA: 10730679  
@@ -56,9 +57,10 @@ De modo complementar, o projeto pode apoiar o **ODS 8 (Trabalho Decente e Cresci
 O cronograma abaixo apresenta as atividades previstas, com responsáveis e prazos estimados.  
 **Marcos principais:** definição/ingestão do dataset, preparação e baseline, implementação do recomendador, MVP/demonstração e entrega final (relatório + apresentação/vídeo).
 
+Em andamento
+
 > Observação: datas podem ser ajustadas conforme o calendário oficial da disciplina.
 
-Em andamento
 ---
 
 ## 5. Repositório
