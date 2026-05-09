@@ -1,4 +1,4 @@
-# Projeto Aplicado III - Sistema de Recomendação de Restaurantes (iFood)
+# Projeto Aplicado III — Sistema de Recomendação de Restaurantes
 
 ## 1. Apresentação
 
@@ -6,10 +6,10 @@
 Sistema de Recomendação de Restaurantes (iFood)
 
 **Membros do Grupo:**  
-- Andria Giovana Oliveira Cabeca da Silva - RA: 10441204
+- Allana Silva Santana - RA: 10424950  
 - Cristiano Prado do Carmo – RA: 10720249  
-- Felipe Graciano de Moura Ramos – RA: 10369992  
-- Guilherme Santos Oliveira – RA: 10730679  
+- Déborah Silvério Alves Morales – RA: 10728563  
+- Maria Fernanda Salles Vasconcellos – RA: 10424791  
 
 **Objetivo do Projeto:**  
 Desenvolver um **sistema de recomendação de restaurantes** utilizando a base pública **iFood Restaurants Data** (Kaggle), capaz de sugerir estabelecimentos **similares** a um restaurante de referência e/ou **coerentes com preferências** (ex.: categoria culinária, características e outros atributos disponíveis), aplicando técnicas de recomendação e boas práticas de ciência de dados, com entregas reprodutíveis e documentadas.
@@ -20,7 +20,7 @@ Desenvolver um **sistema de recomendação de restaurantes** utilizando a base p
 
 Plataformas de delivery e descoberta de restaurantes oferecem um grande volume de opções, o que pode gerar sobrecarga de escolha e dificuldade para encontrar estabelecimentos alinhados ao perfil do usuário. Sistemas de recomendação buscam reduzir esse atrito ao **priorizar itens relevantes**, apresentando sugestões personalizadas ou contextualizadas.
 
-Neste projeto, será utilizada a base **iFood Restaurants Data**, disponibilizada no Kaggle, contendo registros de restaurantes do iFood em snapshots de 2020/2021 (catálogo e atributos dos estabelecimentos). Como o conjunto de dados é orientado a **itens (restaurantes)** e seus atributos (em vez de histórico de interações usuário–item), o projeto dará ênfase a uma abordagem **baseada em conteúdo (content-based)**, com possibilidade de extensão para um modelo **híbrido** caso sejam incorporadas regras, perfis de preferência ou outras fontes de dados.
+Neste projeto, é utilizada a base **iFood Restaurants Data**, disponibilizada no Kaggle, contendo registros de restaurantes do iFood em snapshots de 2020/2021 (catálogo e atributos dos estabelecimentos). Como o conjunto de dados é orientado a **itens (restaurantes)** e seus atributos, e não a interações explícitas entre usuários e itens, o projeto dá ênfase a uma abordagem **baseada em conteúdo (content-based)**.
 
 ---
 
@@ -30,50 +30,76 @@ Neste projeto, será utilizada a base **iFood Restaurants Data**, disponibilizad
 **iFood**, plataforma brasileira de delivery e marketplace de alimentação.
 
 **Problema de Estudo:**  
-A diversidade de opções e a necessidade de filtragem manual dificultam a descoberta eficiente de restaurantes relevantes, especialmente quando o usuário deseja alternativas semelhantes a um restaurante que já conhece ou um conjunto de preferências.
+A diversidade de opções e a necessidade de filtragem manual dificultam a descoberta eficiente de restaurantes relevantes, especialmente quando o usuário deseja alternativas semelhantes a um restaurante que já conhece ou a um conjunto de preferências.
 
 **Objetivo Geral:**  
 Construir um sistema de recomendação que gere um **ranking Top-N** de restaurantes recomendados, com base na **similaridade** entre estabelecimentos e/ou aderência a preferências informadas, utilizando as características presentes no dataset.
 
 **Metas Específicas:**  
 - Selecionar e compreender o dataset (estrutura, variáveis e limitações).  
-- Realizar limpeza e preparação dos dados (padronizações, nulos, duplicidades).  
-- Construir um **baseline** (recomendação simples por regras/atributos) para comparação.  
-- Implementar recomendação **content-based** (ex.: vetorização de atributos e similaridade do cosseno; TF-IDF quando houver campos textuais).  
-- Avaliar a qualidade das recomendações com métricas e validações adequadas ao contexto (ex.: análises qualitativas, testes de consistência, cobertura/diversidade; e, quando aplicável, métricas offline de ranking).  
-- Implementar um **MVP** de entrega (relatório + demonstração: notebook, dashboard simples ou API).  
-- Documentar decisões, resultados e limitações, garantindo reprodutibilidade.
+- Realizar limpeza e preparação dos dados (padronizações, nulos e duplicidades).  
+- Construir um **baseline** para comparação.  
+- Implementar recomendação **baseada em conteúdo**, com vetorização e similaridade.  
+- Avaliar qualitativamente as recomendações geradas.  
+- Implementar uma **prova de conceito** funcional.  
+- Documentar decisões, resultados, limitações e possibilidades de evolução.
 
-### 3.1. Objetivo Extensionista (ODS/ONU)
+### 3.1 Objetivo Extensionista (ODS/ONU)
 
-O projeto incorpora um **objetivo extensionista** ao propor uma solução que, além do valor técnico, contribua para necessidades alinhadas aos **Objetivos de Desenvolvimento Sustentável (ODS) da ONU**. Em especial, o trabalho se conecta ao **ODS 12 (Consumo e Produção Responsáveis)** ao favorecer escolhas mais conscientes e eficientes, reduzindo desperdícios de tempo e recursos na busca e ampliando a visibilidade de estabelecimentos compatíveis com critérios de preferência e responsabilidade (quando tais atributos estiverem disponíveis ou puderem ser tratados de forma adequada).
+O projeto incorpora um **objetivo extensionista** ao propor uma solução que, além do valor técnico, contribui para necessidades alinhadas aos **Objetivos de Desenvolvimento Sustentável (ODS) da ONU**. Em especial, o trabalho se conecta ao **ODS 12 (Consumo e Produção Responsáveis)** ao favorecer escolhas mais conscientes e eficientes, reduzindo desperdícios de tempo e recursos na busca e ampliando a visibilidade de estabelecimentos compatíveis com critérios de preferência e responsabilidade.
 
-De modo complementar, o projeto pode apoiar o **ODS 8 (Trabalho Decente e Crescimento Econômico)** e o **ODS 11 (Cidades e Comunidades Sustentáveis)** ao incentivar a descoberta de restaurantes locais e a distribuição de demanda, contribuindo para o fortalecimento de pequenos negócios e serviços nas comunidades.
-
----
-
-## 4. Cronograma do Projeto
-
-O cronograma abaixo apresenta as atividades previstas, com responsáveis e prazos estimados.  
-**Marcos principais:** definição/ingestão do dataset, preparação e baseline, implementação do recomendador, MVP/demonstração e entrega final (relatório + apresentação/vídeo).
-
-Em andamento
-
-> Observação: datas podem ser ajustadas conforme o calendário oficial da disciplina.
+De modo complementar, o projeto também dialoga com o **ODS 8 (Trabalho Decente e Crescimento Econômico)** e o **ODS 11 (Cidades e Comunidades Sustentáveis)**, ao incentivar a descoberta de restaurantes locais e contribuir para o fortalecimento de pequenos negócios e serviços nas comunidades.
 
 ---
 
-## 5. Repositório
+## 4. Metodologia resumida
 
-Repositório no GitHub: **https://github.com/gracianFelipe/Projeto_Aplicado_III**
+A solução foi desenvolvida com base nas seguintes etapas:
+
+1. entendimento do problema e dos dados;  
+2. coleta e seleção da base;  
+3. pré-processamento e limpeza dos dados;  
+4. construção da representação textual dos restaurantes;  
+5. vetorização com **TF-IDF**;  
+6. cálculo de similaridade com **similaridade do cosseno**;  
+7. construção do **baseline**;  
+8. avaliação qualitativa;  
+9. ajustes e refinamento do pipeline.
 
 ---
 
-## 6. Bibliografia
+## 5. Principais resultados
 
-- TACHINARDI, Ricardo. *iFood Restaurants Data* [conjunto de dados]. Kaggle, 2021. Disponível em: https://www.kaggle.com/datasets/ricardotachinardi/ifood-restaurants-data. Acesso em: 03 mar. 2026.  
-- NAÇÕES UNIDAS. *Transformando nosso mundo: a Agenda 2030 para o Desenvolvimento Sustentável*. 2015. Disponível em: https://brasil.un.org/sites/default/files/2020-09/agenda2030-pt-br.pdf. Acesso em: 03 mar. 2026.  
-- NAÇÕES UNIDAS NO BRASIL. *Objetivos de Desenvolvimento Sustentável (ODS) no Brasil*. Disponível em: https://brasil.un.org/pt-br/sdgs. Acesso em: 03 mar. 2026.  
-- NAÇÕES UNIDAS NO BRASIL. *ODS 12 — Consumo e produção responsáveis*. Disponível em: https://brasil.un.org/pt-br/sdgs/12. Acesso em: 03 mar. 2026.  
-- RICCI, Francesco; ROKACH, Lior; SHAPIRA, Bracha. *Recommender Systems Handbook*. 2. ed. Boston: Springer, 2015.  
-- AGGARWAL, Charu C. *Recommender Systems: The Textbook*. Cham: Springer, 2016.
+Os resultados mostraram que a abordagem baseada em conteúdo foi capaz de gerar recomendações coerentes com os restaurantes consultados, principalmente em termos de **categoria** e **faixa de preço**.
+
+A comparação com o baseline indicou que o modelo principal apresentou maior flexibilidade e melhor capacidade de captar similaridades entre os estabelecimentos. Após o refinamento do pipeline, observou-se melhora na consistência das recomendações, reforçando a viabilidade da prova de conceito.
+
+---
+
+## 6. Cronograma do Projeto
+
+| Etapa | Atividade | Início | Término | Responsável |
+|------:|-----------|:------:|:-------:|-------------|
+| 1 | Alinhamento do tema, escopo e objetivo extensionista | 02/03/2026 | 06/03/2026 | Todos |
+| 2 | Definição do repositório e padrão de pastas | 05/03/2026 | 06/03/2026 | Todos |
+| 3 | Download/ingestão do dataset + Data Card | 09/03/2026 | 13/03/2026 | Todos |
+| 4 | Limpeza e preparação dos dados | 16/03/2026 | 27/03/2026 | Cristiano / Débora |
+| 5 | EDA orientada ao problema | 30/03/2026 | 10/04/2026 | Allana / Maria Fernanda |
+| 6 | Baseline e critérios de avaliação | 13/04/2026 | 17/04/2026 | Todos |
+| 7 | Modelo baseado em conteúdo | 20/04/2026 | 15/05/2026 | Cristiano / Allana |
+| 8 | Ajustes, análise e refinamento | 18/05/2026 | 29/05/2026 | Todos |
+| 9 | MVP / documentação / apresentação | 01/06/2026 | 21/06/2026 | Todos |
+
+---
+
+## 7. Estrutura do repositório
+
+```text
+Projeto_Aplicado_III/
+├── README.md
+├── data/
+├── docs/
+├── notebooks/
+├── scripts/
+├── figures/
+└── videos/
